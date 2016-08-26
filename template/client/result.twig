@@ -3,17 +3,28 @@
     <div class="row" style="width: 50%; margin: auto">
         <h1>Output List</h1>
         {% if outputList %}
-            {% for itemList in outputList %}
+            {% for siteTitle,itemList in outputList %}
+                <h2 style="border-bottom: solid 1px;">{{ siteTitle }}</h2>
                 {% for item in itemList %}
                     <div>
-                        <div>
-                            <b>Title</b>
-                            <p>{{ item.title }}</p>
-                        </div>
-                        <div>
-                            <b>Description</b>
-                            <p>{{ item.description }}</p>
-                        </div>
+                        {% if item.title %}
+                            <div>
+                                <b>Title</b>
+                                <p>{{ item.title }}</p>
+                            </div>
+                        {% endif %}
+                        {% if item.description %}
+                            <div>
+                                <b>Description</b>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        {% endif %}
+                        {% if item.pubDate %}
+                            <div>
+                                <b>pubDate</b>
+                                <p>{{ item.pubDate }}</p>
+                            </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             {% endfor %}
