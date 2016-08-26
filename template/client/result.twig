@@ -1,0 +1,22 @@
+{% extends "client/base.twig" %}
+{% block content %}
+    <div class="row" style="width: 50%; margin: auto">
+        <h1>Output List</h1>
+        {% if outputList %}
+            {% for itemList in outputList %}
+                {% for item in itemList %}
+                    <div>
+                        <div>
+                            <b>Title</b>
+                            <p>{{ item.title }}</p>
+                        </div>
+                        <div>
+                            <b>Description</b>
+                            <p>{{ item.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

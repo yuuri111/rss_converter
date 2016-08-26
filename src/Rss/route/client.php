@@ -12,6 +12,11 @@ class Client {
             return $controller->invoke($app);
         });
 
+        $app->match('/convert', function() use($app){
+            $controller = new Top();
+            return $controller->convert($app);
+        })->method('GET|POST');
+
         $app->error(function (\Exception $e, $code) use($app){
             if ($_SERVER['REQUEST_URI'] !== '/') {
                 return $app->redirect('/');
